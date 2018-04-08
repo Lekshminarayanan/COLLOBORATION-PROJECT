@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<!--  Role:{{currentUser.role}}  -->
+<head>
+<meta charset="ISO-8859-1">
+<title>Social Website</title>
+<!--
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ --> 
+ 
+<script src="js/jquery.min.js"></script>
+ <link rel="stylesheet" href="css/bootstrap.min.css" />
+ <script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">AppPlay</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li ><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+				
+				<li ng-show="currentUser.role=='User'"><a href="#blog"><i class="fa fa-shield"></i>Blog</a></li>
+<!-- 				<li ng-show="currentUser.role=='User'"><a href="#forum"><i class="fa fa-shield"></i>Forum</a></li>  -->
+				<li ng-show="currentUser.role=='Admin'"><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
+				<li ng-show="currentUser.role=='Admin'"><a href="#adminForum"><i class="fa fa-shield"></i>AdminForum</a></li>
+				<li  ng-show="currentUser.role=='Admin'"><a href="#job"><i class="fa fa-shield"></i>Job</a></li>
+				<li ng-show="currentUser.role=='User'"><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
+				
+          <li  ng-show="currentUser.role=='User'"><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
+		  <li  ng-show="currentUser.role=='User'"><a href="#friend"><i class="fa fa-shield"></i>Friends</a></li>
+	    
+				<li><a href="#login"><i class="fa fa-shield"></i>Login</a></li>
+				 <li ng-show="currentUser.role=='User'"><a href="#chat"><i class="fa fa-shield"></i>Chat</a></li>
+			     <li ng-hide="currentUser.role=='Admin'"><a href="#register"><i class="fa fa-shield"></i>
+						Register</a></li>
+					 </ul>
+					  <div ng-show="currentUser.role=='User' || currentUser.role=='Admin'">
+				 <div class="nav navbar-nav navbar-right" ng-show="currentUser.userName!='undefined'">
+				 <font color='#ffa31a' face='calibri' size='4'>Welcome:{{currentUser.userName}}&nbsp;&nbsp;&nbsp;
+				<img src="http://localhost:7072/SocialNetworkAppRest1/getImage/{{currentUser.userName}}" width="20" height="20"/>
+	
+				<form><input type="submit" value="Logout" ng-click="logout()"/></form>
+				<a href="#profilepic">Profile Picture</a>
+				</font></div>
+		</div>
+		</div>
+	</nav>
+<div id="main">
+		<div ng-view></div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom" style="height:40px;background-color:white">
+  <div class="container-fluid">
+ <p style="line-height:40px;text-align:center">Copyright &copy; 2018 AppPlay. All Rights Reserved </p>
+  </div>
+</footer>
+
+
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+ -->
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/lodash.js"></script>
+<script src="js/stomp.js"></script>
+<script src="js/sockjs.js"></script>
+ 
+<script type="text/javascript" src="Config.js"></script>
+<script type="text/javascript" src="Blog/BlogController.js"></script>
+<script type="text/javascript" src="Forum/ForumController.js"></script>
+<script type="text/javascript" src="Forum/adminforumcontroller.js"></script>
+<script type="text/javascript" src="Blog/AdminBlogController.js"></script>
+<script type="text/javascript" src="controllers/usercontroller.js"></script>
+<script type="text/javascript" src="services/userservice.js"></script>
+<script type="text/javascript" src="Job/JobController.js"></script>
+<script type="text/javascript" src="Friend/FriendController.js"></script>
+<script type="text/javascript" src="Chat/ChatController.js"></script>
+<script type="text/javascript" src="Chat/ChatService.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+.navbar-default {
+    background-color:#e74c3c;
+    color:black;
+    border-radius:0;
+}
+
+.navbar-default .navbar-brand {
+    color:white;
+}
+
